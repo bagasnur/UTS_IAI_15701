@@ -86,11 +86,11 @@ class MediaSocialController extends Controller
       $usersaatini = $this->getUserLogin($request);
 
       $result = MediaSocial::where('id', $id)->first();
-      $result->social_media = $request->input('sosmed');
-      $result->username = $request->input('username');
-      $result->save();
 
       if ($result->user_id == $usersaatini->id) {
+         $result->social_media = $request->input('sosmed');
+         $result->username = $request->input('username');
+         $result->save();
          if ($result) {
             $data['code'] = 200;
             $data['status'] = "Data Updated";
